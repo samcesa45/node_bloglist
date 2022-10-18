@@ -1,10 +1,9 @@
-import dotenv from 'dotenv'
-import http from 'http'
-dotenv.config()
 import app from './app'
+import http from 'http'
+import config from './utils/config'
+import logger from './utils/logger'
 const server = http.createServer(app)
 
-const PORT = process.env.PORT
-server.listen(PORT, () => {
-    console.log(`Server listening at port ${PORT}`)
+server.listen(config.PORT, () => {
+    logger.info(`Server listening at port ${config.PORT}`)
 })

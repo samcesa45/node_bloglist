@@ -1,16 +1,16 @@
 import cors from 'cors'
 import express from 'express'
+import { connect } from 'mongoose'
 import blogsRouter from './controllers/blogs'
 import config from './utils/config'
-import { connect } from 'http2'
 import logger from './utils/logger'
 import middleware from './utils/middleware'
 
 const app = express()
 
 //connect to mongoose
-const password = config.MONGODB_URI
-const url = `mongodb+srv://samcesa45:${password}@cluster0.lumxc.mongodb.net/blogApp?retryWrites=true&w=majority`
+// const password = config.MONGODB_URI
+const url = config.MONGODB_URI!
 
 const run = async () => {
     await connect(url)

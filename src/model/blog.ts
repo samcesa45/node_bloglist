@@ -1,5 +1,7 @@
+import dotenv from 'dotenv'
 import { model, Schema } from 'mongoose'
 import { IBlog } from '../../types/types'
+dotenv.config()
 
 const blogSchema = new Schema<IBlog>({
     title: { type: String, required: true },
