@@ -1,8 +1,8 @@
 import cors from 'cors'
 import express from 'express'
+import  config from './utils/config'
 import { connect } from 'mongoose'
 import blogsRouter from './controllers/blogs'
-import config from './utils/config'
 import logger from './utils/logger'
 import middleware from './utils/middleware'
 
@@ -10,12 +10,13 @@ const app = express()
 
 //connect to mongoose
 // const password = config.MONGODB_URI
+// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 const url = config.MONGODB_URI!
 
 const run = async () => {
-    await connect(url)
-    logger.info('mongodb connected')
-    logger.info('blogs saved!')
+  await connect(url)
+  logger.info('mongodb connected')
+  logger.info('blogs saved!')
 }
 
 run().catch(err => logger.error(err))

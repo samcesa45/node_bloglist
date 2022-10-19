@@ -5,5 +5,5 @@ import logger from './utils/logger'
 const server = http.createServer(app)
 
 server.listen(config.PORT, () => {
-    logger.info(`Server listening at port ${config.PORT}`)
+  logger.info(`Server listening at port ${config.PORT}`)
 })
