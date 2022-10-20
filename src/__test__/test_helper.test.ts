@@ -22,8 +22,21 @@ const blogInDB = async () => {
   return blogs.map(blog => blog)
 }
 
+const nonExistingId = async () => {
+  const blog = new Blog({ title: 'React patterns',
+    author: 'Iamagoggler',
+    url: 'https://google.com/',
+    likes: 3, })
+  await blog.save()
+
+  await blog.remove()
+
+  return blog._id.toString()
+}
+
 
 export default{
   initialBlogs,
+  nonExistingId,
   blogInDB
 }
